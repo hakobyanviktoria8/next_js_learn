@@ -1,14 +1,26 @@
-import Link from 'next/link';
+import Head from 'next/head'
+import Link from 'next/link'
+import Layout from "../../components/layout";
+// import styles from "../../styles/first-post.css"
 
 export default function FirstPost() {
     return (
         <div>
-            <h1>First Post</h1>
-            <h2>
-                <Link href="/">
-                    <a>Back</a>
-                </Link>
-            </h2>
+            <Layout>
+                <Head>
+                    <title>First Post</title>
+                </Head>
+                <h1>First Post</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloribus explicabo ipsam, iste
+                    magni maiores non omnis optio quas quos rerum temporibus vitae voluptates. Consectetur id iure
+                    molestias tenetur voluptas?</p>
+
+                <h2>
+                    <Link href="/">
+                        <a>Back to home</a>
+                    </Link>
+                </h2>
+            </Layout>
         </div>
     )
 }
