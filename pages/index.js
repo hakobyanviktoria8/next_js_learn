@@ -1,3 +1,4 @@
+/*
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -13,7 +14,7 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                {/*next js org link*/}
+                {/!*next js org link*!/}
                 <h1 className={styles.title}>
                     I learn next js in {" "}
                     <Link
@@ -22,13 +23,13 @@ export default function Home() {
                     </Link>
                     {" "} site
                 </h1>
-                {/*my create folder and file*/}
+                {/!*my create folder and file*!/}
                 <h2>
                     Read {"    "}
                     <Link href="/posts/first-post">
                         <a>this page!</a>
                     </Link>
-                    {/*Learn <a href="https://nextjs.org">Next.js!</a>*/}
+                    {/!*Learn <a href="https://nextjs.org">Next.js!</a>*!/}
                 </h2>
 
                 <p className={styles.description}>
@@ -63,5 +64,28 @@ export default function Home() {
                 </a>
             </footer>
         </div>
+    )
+}
+*/
+
+
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
+
+export default function Home() {
+    return (
+        <Layout home>
+            <Head>
+                <title>{siteTitle}</title>
+            </Head>
+            <section className={utilStyles.headingMd}>
+                <p>[Your Self Introduction]</p>
+                <p>
+                    (This is a sample website - you’ll be building a site like this on{' '}
+                    <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+                </p>
+            </section>
+        </Layout>
     )
 }
