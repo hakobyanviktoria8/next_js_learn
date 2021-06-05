@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Date from '../components/date'
 import styles from '../styles/Home.module.css'
 /*
 import Head from 'next/head'
@@ -72,10 +73,10 @@ export default function Home() {
 import Head from 'next/head'
 import Layout, {siteTitle} from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-// import {getSortedPostsData} from "../lib/posts";
+import {getSortedPostsData} from "../lib/posts";
 import ArticleList from "../components/ArticleList"
 
-export default function Home({allArticle}) {
+export default function Home({allPostsData}) {
     return (
         <Layout home>
             <Head>
@@ -88,69 +89,72 @@ export default function Home({allArticle}) {
                         (This is a sample website - you’ll be building a site like this on{' '}
                         <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
                     </p>
-                    {/*<h2>
-                    Read {"    "}
-                    <Link href="/components/first-post">
-                    <a>this page!</a>
-                    </Link>
-                    </h2>*/}
-                </section>
-                <ArticleList allArticle={allArticle}/>
-                   {/* chang whit Article componbent
-                    <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                    <h2 className={utilStyles.headingLg}>Blog</h2>
-                    <ul className={utilStyles.list}>
-                    {allPostsData.map(date => (
-                    <li className={utilStyles.listItem} key={date.id}>
-                    {date.id}
-                    <h3>{date.title}</h3>
-                    <br/>
-                    {date.body}
-                    </li>
-                    ))}
-                    </ul>
-                    </section>
 
-                    <h2>
-                    Read {"    "}
-                    <Link href="posts/first-post.js">
-                    <a>this page!</a>
-                    </Link>
-                    </h2>*/}
+                </section>
+                {/*in video example*/}
+                {/*<ArticleList allArticle={allArticle}/>*/}
+
+
+                {/*chang whit Article componbent*/}
+                <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                    <h2 className={utilStyles.headingLg}>Blog HOME pages index</h2>
+                    <ul className={utilStyles.list}>
+                        {allPostsData.map(({ id, date, title }) => (
+                            <li className={utilStyles.listItem} key={id}>
+                                <Link href={`/posts/${id}`}>
+                                    <a>{title}</a>
+                                </Link>
+                                <br />
+                                <small className={utilStyles.lightText}>
+                                    {date && <Date dateString={date} />}
+                                </small>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
             </main>
         </Layout>
-)
+    )
 }
+
 export async function getStaticProps() {
+    const allPostsData = getSortedPostsData();
+    return {
+        props: {
+            allPostsData
+        }
+    }
+}
+/*export async function getStaticProps() {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10`);
     const allArticle = await res.json();
     return {
-    props: {
-    allArticle
-}
-}
-}
-
-    /*export async function getStaticProps() {
-        // Get external data from the file system, API, DB, etc.
-        // const res = await fetch(`https://.../data`);
-        // const data = await res.json()
-        const data = [1,2,3,4,5];
-
-        if (!data) {
-            return {
-                redirect: {
-                    destination: '/',
-                    permanent: false,
-                },
-            }
+        props: {
+            allArticle
         }
-        // The value of the `props` key will be
-        //  passed to the `Home` component
+    }
+}*/
+
+/*export async function getStaticProps() {
+    // Get external data from the file system, API, DB, etc.
+    // const res = await fetch(`https://.../data`);
+    // const data = await res.json()
+    const data = [1,2,3,4,5];
+
+    if (!data) {
         return {
-            props: {data}
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
         }
-    }*/
+    }
+    // The value of the `props` key will be
+    //  passed to the `Home` component
+    return {
+        props: {data}
+    }
+}*/
 
 
 // export async function getStaticProps() {
