@@ -11,7 +11,7 @@ export default function FirstPost() {
                     <title>First Post</title>
                 </Head>
                 <main>
-                    <h1>First Post</h1>
+                    <h1>First Post Page</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloribus explicabo ipsam, iste
                         magni maiores non omnis optio quas quos rerum temporibus vitae voluptates. Consectetur id iure
                         molestias tenetur voluptas?
