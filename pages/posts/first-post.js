@@ -10,16 +10,13 @@ export default function FirstPost() {
                 <Head>
                     <title>First Post</title>
                 </Head>
-                <h1>First Post</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloribus explicabo ipsam, iste
-                    magni maiores non omnis optio quas quos rerum temporibus vitae voluptates. Consectetur id iure
-                    molestias tenetur voluptas?</p>
-
-                <h2>
-                    <Link href="/">
-                        <a>Back to home</a>
-                    </Link>
-                </h2>
+                <main>
+                    <h1>First Post</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloribus explicabo ipsam, iste
+                        magni maiores non omnis optio quas quos rerum temporibus vitae voluptates. Consectetur id iure
+                        molestias tenetur voluptas?
+                    </p>
+                </main>
             </Layout>
         </div>
     )

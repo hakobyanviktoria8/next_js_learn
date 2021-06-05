@@ -6,18 +6,19 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from './layout.module.css'
+import styles from '../styles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Nav from "./Nav"
 
 const name = 'Viktorya Hakobyan';
 export const siteTitle = 'Next.js Sample Website';
 
-export default function Layout({ children, home }) {
+export default function Layout({children, home}) {
     return (
         <div className={styles.container}>
             <Head>
-                <link rel="icon" href={"/favicon.ico"} />
+                <link rel="icon" href={"/favicon.ico"}/>
                 <meta
                     name="description"
                     content="Learn how to build a personal website using Next.js"
@@ -28,10 +29,13 @@ export default function Layout({ children, home }) {
                         siteTitle
                     )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                 />
-                <meta name="og:title" content={siteTitle} />
-                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="og:title" content={siteTitle}/>
+                <meta name="twitter:card" content="summary_large_image"/>
             </Head>
             <header className={styles.header}>
+                <Nav/>
+                <h3 style={{backgroundColor: "black", color:"white", width: "100%", padding: "1rem"}}>It's a header</h3>
+
                 {home ? (
                     <>
                         <Image
@@ -50,7 +54,7 @@ export default function Layout({ children, home }) {
                             <a>
                                 <Image
                                     priority
-                                    src="../public/isotipo.png"
+                                    src="/isotipo.png"
                                     className={utilStyles.borderCircle}
                                     height={108}
                                     width={108}
@@ -58,19 +62,17 @@ export default function Layout({ children, home }) {
                                 />
                             </a>
                         </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
                     </>
                 )}
             </header>
-            <main>{children}</main>
+            <main style={{border: "3px solid"}}>
+                <h3 style={{backgroundColor: "black", color:"white", width: "100%", padding: "1rem"}}>It's a main</h3>
+                {children}</main>
+
             {!home && (
                 <div className={styles.backToHome}>
                     <Link href="/">
-                        <a>← Back to home</a>
+                        <a>Back to home</a>
                     </Link>
                 </div>
             )}
