@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function HelloWorld() {
+function HelloWorld(props) {
     return (
         <div>
             Hello world
