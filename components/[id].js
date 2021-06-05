@@ -1,9 +1,9 @@
-import Layout from '../../components/layout'
-import {getAllPostIds, getPostData} from '../../lib/posts'
-import Date from '../../components/date'
+import Layout from './layout'
+import {getAllPostIds, getPostData} from '../lib/posts'
+import Date from './date'
 import Head from "next/head"
 // Add this import at the top of the file
-import utilStyles from '../../styles/utils.module.css'
+import utilStyles from '../styles/utils.module.css'
 
 export default function Post({postData}) {
     console.log("Post",postData);
