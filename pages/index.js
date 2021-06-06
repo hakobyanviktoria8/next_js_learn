@@ -89,7 +89,9 @@ export default function Home({allPostsData}) {
                         (This is a sample website - you’ll be building a site like this on{' '}
                         <a href="https://nextjs.org/learn">Next.js tutorial in nextjs.org website</a>.)
                     </p>
-
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam corporis debitis dolorum,
+                        eligendi excepturi fuga laboriosam molestiae obcaecati praesentium quaerat quo rem repellendus,
+                        sed sint sit soluta velit vero vitae.</p>
                 </section>
                 {/*in video example*/}
                 {/*<ArticleList allArticle={allArticle}/>*/}
@@ -99,14 +101,14 @@ export default function Home({allPostsData}) {
                 <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                     <h2 className={utilStyles.headingLg}>Blog HOME pages index</h2>
                     <ul className={utilStyles.list}>
-                        {allPostsData.map(({ id, date, title }) => (
+                        {allPostsData.map(({id, date, title}) => (
                             <li className={utilStyles.listItem} key={id}>
                                 <Link href={`/posts/${id}`}>
                                     <a>{title}</a>
                                 </Link>
-                                <br />
+                                <br/>
                                 <small className={utilStyles.lightText}>
-                                    {date && <Date dateString={date} />}
+                                    {date && <Date dateString={date}/>}
                                 </small>
                             </li>
                         ))}
@@ -125,6 +127,7 @@ export async function getStaticProps() {
         }
     }
 }
+
 /*export async function getStaticProps() {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10`);
     const allArticle = await res.json();
